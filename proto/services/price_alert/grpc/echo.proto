@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+package echo;
+
+service Echo {
+  rpc Say(SayRequest) returns (SayResponse) {}
+}
+
+message SayRequest {
+  string say_msg = 1;
+}
+
+message SayResponse {
+  string answer_msg = 1;
+}

@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package pricealert;
+
+message PriceAlert {
+  string id = 1;
+  string account_id = 2;
+  string base_ticker = 3;
+  string quote_ticker = 4;
+  bool is_short = 5;
+  double alert_price = 6;
+  int64 created_at = 7;
+  bool is_deleted = 8;
+}
+
+message GetAllActivePriceAlertsRequest {
+}
+
+message GetAllActivePriceAlertsResponse {
+  repeated PriceAlert price_alerts = 1;
+}
+
+message GetActivePriceAlertsByAccountIDRequest {
+  string account_id = 1;
+}
+
+message GetActivePriceAlertsByAccountIDResponse {
+  repeated PriceAlert price_alerts = 1;
+}
+
+message GetActivePriceAlertsByTickersRequest {
+  string quote_ticker = 1;
+  string base_ticker = 2;
+}
+
+message GetActivePriceAlertsByTickersResponse {
+  repeated PriceAlert price_alerts = 1;
+}
+
+service PriceAlertService {
+  rpc GetAllActivePriceAlerts(GetAllActivePriceAlertsRequest) returns (GetAllActivePriceAlertsResponse) {}
+  rpc GetActivePriceAlertsByAccountID(GetActivePriceAlertsByAccountIDRequest) returns (GetActivePriceAlertsByAccountIDResponse) {}
+  rpc GetActivePriceAlertsByTickers(GetActivePriceAlertsByTickersRequest) returns (GetActivePriceAlertsByTickersResponse) {}
+}

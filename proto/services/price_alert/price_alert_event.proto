@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package pricealertevent;
+
+message PriceAlertCreateEvent {
+    google.protobuf.StringValue id = 1;
+    string account_id = 2;
+    string base_ticker = 3;
+    string quote_ticker = 4;
+    bool is_short = 5;
+    double alert_price = 6;
+    google.protobuf.UInt64Value created_at = 7;
+}
+
+message PriceAlertDeleteEvent {
+    google.protobuf.StringValue id = 1;
+    google.protobuf.UInt64Value deleted_at = 2;
+}

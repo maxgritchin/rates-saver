@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "proto/services/exchange/bidask.proto";
+
+package ratessaver;
+
+message TimeRange {
+    int64 from = 1; 
+    int64 to = 2; 
+} 
+
+message GetSavedRatesRequest {
+    optional string id = 1; 
+    optional TimeRange date_range = 2;
+}
+
+    message GetSavedRatesResponse {
+        repeated bidask.BidAsk rates = 1;
+    }
+
+service RatesSaverService {
+    rpc GetSavedRates(GetSavedRatesRequest) returns (GetSavedRatesResponse) {}
+}
+  

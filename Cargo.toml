@@ -1,0 +1,48 @@
+[package]
+name = "yh-services-rates-saver"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+yh-services-sdk = { git = "ssh://git@github.com/YouToken/YH.Services.SDK.Rust.git", tag = "0.2.1", features = ["logger", "config-reader", "migrations", "service-bus"] }
+
+dotenv = "0.15.0"
+chrono = { version = "0.4.20", default-features = false, features = ["clock", "std"] }
+uuid = { version = "1.3.4", features = ["v4"] }
+
+serde_derive = "1.0.152"
+serde = "1.0.8"
+serde_json = "1.0.92"
+
+my-logger = { tag = "0.2.0", git = "https://github.com/MyJetTools/my-logger.git" }
+my-seq-logger = { tag = "0.2.1", git = "https://github.com/MyJetTools/my-seq-logger.git" }
+rust-extensions = { branch = "main", git = "https://github.com/MyJetTools/rust-extensions.git" }
+
+my-service-bus-shared = { branch = "0.2.0", git = "https://github.com/MyJetTools/my-service-bus-shared.git" }
+my-service-bus-tcp-client = { branch = "0.1.1", git = "https://github.com/MyJetTools/my-service-bus-tcp-client.git" }
+my-tcp-sockets = {branch = "0.1.0", git = "https://github.com/MyJetTools/my-tcp-sockets.git"}
+
+tokio = { version = "1.18.2", features = ["full"] }
+tokio-util = "*"
+async-trait = "0.1.52"
+
+tonic = "0.9.2"
+prost = "0.11.9"
+tonic-reflection = "0.9.2"
+
+tokio-postgres = "0.7.8"
+quote = "1.0.27"
+diesel = { version = "2.1.0", features = ["postgres", "uuid", "numeric", "time", "chrono"] }
+diesel-async = { version = "0.3.1", features = ["postgres", "deadpool"] }
+diesel_migrations = { version = "2.1.0" }
+deadpool = { version = "0.9.5" }
+
+actix-web = "4"
+actix-rt = "2.8.0"
+
+[build-dependencies]
+tonic-build = "0.9.2"
+
+[dev-dependencies]
+mockall = { version = "0.11.4" }

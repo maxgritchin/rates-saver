@@ -1,0 +1,12 @@
+syntax = "proto3";
+package bidask;
+
+message BidAsk {
+   string Id = 1;
+   int64 DateTime = 2;
+   double Bid = 3;
+   double Ask = 4;
+   double Open = 5;
+   double Close = 6;
+   double Price = 7;
+}
