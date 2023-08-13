@@ -1,5 +1,11 @@
 # YH Rates Saver
 
+This is a template how to use : 
+- DB migrations 
+- Connecto to custim Service Bus and NoSQL 
+- Work with postgresql
+
+
 # Configuration 
 
 ## .config.yaml 
